@@ -1,0 +1,68 @@
+<style>
+  form * {
+    display: block;
+    margin: 10px;
+  }
+</style>
+
+<body>
+  <script>
+    function download(model_name, texture_path, part, author, model_json) {
+      let element = document.createElement('a');
+      let model = JSON.parse(model_json)
+      let conversation = {
+            name: model_name,
+            render_type: "bedrock",
+            hidden_parts: [],
+            texture: texture_path,
+            body_part: part,
+            menu: `part.${part}`,
+            animation_type: part,
+            preview_rotation: 40,
+            translate: [0, 0, 0],
+            scale: [1, 1, 1],
+            rotate_offset: [0, 0, 0],
+            rotate: [0, 0, 0],
+            can_use_player_skin: false,
+            author: author,
+            render_data: model
+        }
+
+        element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(conversation, null, "\t")));
+        element.setAttribute('download', `${model_name}.json`);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
+  </script>
+
+  <form onsubmit="download(this['model_name'].value, this['texture_path'].value, this['part'].value, this['author'].value, this['model_json'].value)">
+    <label for="model_name">Model name:</label>
+    <input type="text" name="model_name" value="model">
+  
+    <label for="texture_path">Texture path:</label>
+    <input type="text" name="texture_path" value="moreplayermodels:textures/model_texture.png">
+  
+    <label for="part">Part name:</label>
+    <select id="part">
+      <option value="head" selected>Head</option>
+	    <option value="arms">Arms</option>
+	    <option value="body">Body</option>
+	    <option value="legs">Legs</option>
+    </select>
+  
+    <label for="author">Model author:</label>
+    <input type="text" name="author" value="Your_Name">
+  
+    <label for="model_json">Model JSON:</label>
+    <textarea name="model_json"></textarea>
+  
+    <input type="submit" value="Download">
+  </form>
+  
+
+</body>
