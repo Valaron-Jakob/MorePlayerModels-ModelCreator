@@ -1,7 +1,45 @@
 <style>
   form * {
     display: block;
-    margin: 10px;
+    margin: 5px;
+  }
+
+  input,select {
+    height: 30px;
+    width: 50%;
+  }
+
+  textarea {
+    height: 50%;
+    width: 50%;
+  }
+
+  h2 {
+    color: #9A8C98;
+  }
+
+  body {
+    color: #22223B;
+    background-color: #9A8C98;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .content {
+    margin-left: 32%;
+    padding: 30px;
+  }
+
+  .how_to {
+    padding: 20px;
+    height: 100%;
+    width: 30%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    color: #F2E9E4;
+    background-color: #22223B;
+    overflow-x: hidden;
   }
 </style>
 
@@ -14,7 +52,7 @@
             name: model_name,
             render_type: "bedrock",
             hidden_parts: [],
-            texture: texture_path,
+            texture: `moreplayermodels:${texture_path}`,
             body_part: part,
             menu: `part.${part}`,
             animation_type: part,
@@ -40,29 +78,59 @@
     }
   </script>
 
-  <form onsubmit="download(this['model_name'].value, this['texture_path'].value, this['part'].value, this['author'].value, this['model_json'].value)">
-    <label for="model_name">Model name:</label>
-    <input type="text" name="model_name" value="model">
-  
-    <label for="texture_path">Texture path:</label>
-    <input type="text" name="texture_path" value="moreplayermodels:textures/model_texture.png">
-  
-    <label for="part">Part name:</label>
-    <select id="part">
-      <option value="head" selected>Head</option>
-	    <option value="arms">Arms</option>
-	    <option value="body">Body</option>
-	    <option value="legs">Legs</option>
-    </select>
-  
-    <label for="author">Model author:</label>
-    <input type="text" name="author" value="Your_Name">
-  
-    <label for="model_json">Model JSON:</label>
-    <textarea name="model_json"></textarea>
-  
-    <input type="submit" value="Download">
-  </form>
-  
+  <div class="content">
+    <form onsubmit="download(this['model_name'].value, this['texture_path'].value, this['part'].value, this['author'].value, this['model_json'].value)">
+      <label for="model_name">Model name:</label>
+      <input type="text" name="model_name" value="model">
 
+      <label for="texture_path">Texture path:</label>
+      <input type="text" name="texture_path" value="textures/model_texture.png">
+
+      <label for="part">Part name:</label>
+      <select id="part">
+        <option value="head" selected>Head</option>
+	      <option value="arms">Arms</option>
+	      <option value="body">Body</option>
+	      <option value="legs">Legs</option>
+      </select>
+
+      <label for="author">Model author:</label>
+      <input type="text" name="author" value="Your_Name">
+
+      <label for="model_json">Model JSON:</label>
+      <textarea name="model_json"></textarea>
+
+      <input type="submit" value="Download">
+    </form>
+  </div>
+
+  <div class="how_to">
+    <div>
+      <h2>MorePlayerModels - Model Creator</h2>
+      <p style="color:#9A8C98">Made by Valaron/Jakob</p>
+      <p>This tool is just a simple script to convert Blockbench models into the current format used by MorePlayerModels.</p>
+
+      <br>
+      <h2>How To</h2>
+      <p>Create a model you want to import with Blockbench and export it in the Bedrock format.</p>
+      <p>Copy the content of the model.geo.json you exported into the model section and fill the missing fields.</p>
+      <p>Click on "Download" to get your finished model.</p>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>This site is not properly tested as of right now and lacks some features, so please use it with caution. Report bugs and errors on the GitHub issue tracker.</p>
+      <a href="https://github.com/Valaron-Jakob/MorePlayerModels-ModelCreator/issues">GitHub Issues</a>
+
+      <br>
+      <br>
+      <br>
+      <h2>Ressources</h2>
+      <p>- MorePlayerModels (Discord/Curseforge/Website) -</p>
+      <p>- Blockbench (Discord/Website) - </p>
+      <p>- Video tutorial/Example model - </p>
+    </div>
+  </div>
+  
 </body>
