@@ -188,7 +188,7 @@
         }
       
       	if (use_skin == 1) {
-	    conversation[can_use_player_skin] = true
+	    conversation.can_use_player_skin = true
 	}
 
         element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(conversation, null, "\t")))
