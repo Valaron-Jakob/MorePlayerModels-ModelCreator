@@ -187,7 +187,9 @@
             render_data: model
         }
       
-      	if (use_skin === 0) conversation[can_use_player_skin] = true
+      	if (use_skin == 0) {
+	    conversation[can_use_player_skin] = true
+	}
 
         element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(conversation, null, "\t")))
         element.setAttribute('download', `${model_name}.json`)
