@@ -1,0 +1,46 @@
+form label {
+    display: block;
+}
+
+input,
+select {
+    height: 30px;
+    width: 50%;
+}
+
+textarea {
+    height: 50%;
+    width: 50%;
+}
+
+a {
+    color: #9A8C98;
+}
+
+h2 {
+    color: #9A8C98;
+}
+
+body {
+    color: #22223B;
+    background-color: #9A8C98;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form_wrapper {
+    margin-left: 32%;
+    padding: 30px;
+}
+
+.info_wrapper {
+    padding: 20px;
+    height: 100vh;
+    width: 30%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    color: #F2E9E4;
+    background-color: #22223B;
+    overflow-x: hidden;
+}
