@@ -9,17 +9,132 @@
 
 <body>
     <div class="nav_bar items">
-
+        <div class="nav_bar_header">
+            <h1>MPM Model Creator</h1>
+            <h2>by Valaron/Jakob</h2>
+        </div>
+        <div class="nav_bar_item">
+            <a href="index_new.html">Home</a>
+        </div>
+        <div class="nav_bar_item">
+            <a href="index_new.html">Form</a>
+        </div>
+        <div class="nav_bar_item">
+            <a href="index_new.html">Extra</a>
+        </div>
     </div>
+
     <div class="res_bar">
+        <div class="res_content">
+            <h1>Resources</h1>
+            <p>MorePlayerModels (by Noppes)</p>
+		    <ul>
+		    	<li><a href="https://discord.com/invite/9xZuaA4">Discord</a></li>
+		    	<li><a href="https://www.curseforge.com/minecraft/mc-mods/more-player-models">CurseForge</a>
+		    	</li>
+		    	<li><a href="http://www.kodevelopment.nl/minecraft/2022/05/21/model-json-creation/">Website</a></li>
+		    </ul>
+		    <p>Blockbench (by Jannis)</p>
+		    <ul>
+		    	<li><a href="https://discord.com/invite/blockbench">Discord</a></li>
+		    	<li><a href="https://www.blockbench.net/">Website</a></li>
+		    </ul>
+		    <p>Video tutorials</p>
+		    <ul>
+		    	<li><a href="https://youtu.be/wXK-uBOnTFQ">Noppes</a></li>
+		    	<li><a href="https://www.youtube.com/watch?v=8HjqzONnsek&ab_channel=GigaBlast02">GigaBlast</a>
+		    	</li>
+		    </ul>
 
+            <p>This site is not properly tested as of right now and lacks some features, so please use it with
+                caution.
+                Report bugs and errors on the GitHub issue tracker.</p>
+            <a href="https://github.com/Valaron-Jakob/MorePlayerModels-ModelCreator/issues">GitHub Issues</a>
+        </div>
     </div>
+
     <div class="content">
         <section class="main_page child">
-
+            
         </section>
         <section class="form_page child">
+            <div class="main_form flex_child">
+                <h1>Form</h1>
+                <form onsubmit="download(
+                    this['model_name'].value,
+                    this['menu'].value,
+                    this['part'].value,
+                    this['author'].value,
+                    this['texture_path'].value,
+                    this['use_skin'].value,
+                    this['animation_type'].value,
+                    this['model_json'].value
+                    )">
 
+		        	<div>
+		        		<label for="model_name" title="This is the name of your model and the .json file you get">Model
+		        			name:</label>
+		        		<input type="text" name="model_name" value="model">
+                        
+		        		<label for="menu" title="You find your model under this category in the mod">Menu category:</label>
+		        		<input type="text" name="menu" value="my_parts">
+                        
+		        		<label for="part" title="Select the part the model is attached to">Part name:</label>
+		        		<select id="part">
+		        			<!-- NONE, HEAD, BODY, LEGS, ARMS, LEFT_ARM, RIGHT_ARM, LEFT_LEG, RIGHT_LEG -->
+		        			<option value="NONE" selected>None</option>
+		        			<option value="HEAD">Head</option>
+		        			<option value="BODY">Body</option>
+		        			<option value="LEGS">Legs</option>
+		        			<option value="ARMS">Arms</option>
+		        			<option value="LEFT_ARM">Left Arm</option>
+		        			<option value="RIGHT_ARM">Right Arm</option>
+		        			<option value="LEFT_LEG">Left Leg</option>
+		        			<option value="RIGHT_LEG">Right Leg</option>
+		        		</select>
+                    
+		        		<label for="author" title="Your name a author of the model or other credits">Model author:</label>
+		        		<input type="text" name="author" value="My_Name">
+		        	</div>
+                
+		        	<label for="texture_path" title="The path to the texture of your model">Texture path:</label>
+		        	<input type="text" name="texture_path" value="textures/model_texture.png">
+                
+		        	<label for="use_skin" title="If this model can use the player skin a a texture">Can use player skin:</label>
+		        	<select id="use_skin">
+		        		<!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
+		        		<option value=0 selected>False</option>
+		        		<option value=1>True</option>
+		        	</select>
+                
+		        	<label for="animation_type" title="The animation your part should be attached to/follow">Animation:</label>
+		        	<select id="animation_type">
+		        		<!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
+		        		<option value="NONE" selected>None</option>
+		        		<option value="BEARD">Head</option>
+		        		<option value="HAIR">Body</option>
+		        		<option value="WINGS">Legs</option>
+		        		<option value="WINGS2">Arms</option>
+		        		<option value="LEGS">Left Arm</option>
+		        		<option value="ARMS">Right Arm</option>
+		        	</select>
+                
+		        	<label for="model_json" title="The content of your model.geo.json file">Model JSON:</label>
+		        	<textarea name="model_json"></textarea>
+                
+		        	<input id="button" type="submit" value="Download">
+		        </form>
+            </div>
+
+            <div class="main_expl flex_child">
+                <h1>How To</h1>
+                <ul>
+                    <li>Fill out the fields of the site according to your model.</li>
+                    <li>Create a model you want to import with Blockbench and export it in the Bedrock format.</li>
+                    <li>Copy all the content of the "model.geo.json" you exported into the model section.</li>
+                    <li>Click on "Download" to get your finished model.</li>
+                </ul>
+            </div>
         </section>
         <section class="extra_page child">
             

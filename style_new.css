@@ -1,3 +1,4 @@
+/*
 *,
 *:before,
 *:after {
@@ -7,27 +8,142 @@
   padding: 0;
   margin: 0;
 }
+*/
 
+/* Colors */
+/*
+    dark-gray: #2B303A
+    light-gray: #7C7C7C
+    white: #EEE5E9
+    light-blue: #92DCE5
+    orange: #D64933
+*/
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #92DCE5;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #474e5c;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #D64933;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: #EEE5E9;
+}
+
+p,li,label,option {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 20px;
+    color: #EEE5E9;
+}
+
+input,
+select {
+    height: 30px;
+    width: 50%;
+}
+
+h1 {
+    /* Styling */
+    color: #EEE5E9;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+h2 {
+    /* Styling */
+    color: rgb(192, 191, 191);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 0;
+}
+
+
+/* Grid */
 body {
     display: grid;
     grid-template-columns: 250px 1fr 250px;
     grid-template-rows: 1fr 1fr;
     gap: 0px;
+    margin: 0;
     justify-content: center;
 }
 
+/* Navigation Bar */
 .nav_bar {
     position: sticky;
     grid-area: 1 / 1 / 3 / 2;
-    background-color: lightgreen;
+    background-color: #2B303A;
     height: 100vh;
 }
 
+.nav_bar_header {
+    /* Positioning */
+    height: 10%;
+    padding: 10px;
+
+    /* Styling */
+    border-bottom: 1px solid #D64933;
+    background-color: #2B303A;
+}
+
+.nav_bar_item {
+    /* Font */
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    font-weight: 500;
+
+    /* Positioning */
+    padding: 10px;
+
+    /* Styling */
+    border-bottom: 1px solid #D64933;
+    background-color: #7C7C7C;
+    cursor: pointer;
+}
+
+/* Navigation Bar - Hover */
+.nav_bar_item:hover {
+    background-color: #D64933;
+}
+
+/* Resource Bar */
 .res_bar {
     position: sticky;
     grid-area: 1 / 3 / 3 / 4;
-    background-color: lightblue;
-    height: 100vh;
+    height: 100vh; 
+    background-color: #2B303A;
+}
+
+/* Resource Bar Content */
+.res_content {
+    /* Positioning */
+    padding: 10px;
+
+    /* Styling */
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 20px;
 }
 
 .content {
@@ -39,17 +155,24 @@ body {
 
 .child {
     scroll-snap-align: start;
-    height: 90vh;
+    height: 95vh;
 }
 
 .main_page {
-    background-color: lightpink;
+    background-color: #92DCE5;
 }
 
 .form_page {
-    background-color: rgb(193, 182, 255);
+    background-color: #7C7C7C;
+    display: flex;
+    flex-direction: row;
+}
+
+.flex_child {
+    padding: 10px;
+    flex: 1;
 }
 
 .extra_page {
-    background-color: rgb(185, 255, 182);
+    background-color: #92DCE5;
 }
