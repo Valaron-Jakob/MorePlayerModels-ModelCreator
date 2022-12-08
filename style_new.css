@@ -53,10 +53,9 @@ p,li,label,option {
     color: #EEE5E9;
 }
 
-input,
-select {
-    height: 30px;
-    width: 50%;
+input, select {
+    height: 25px;
+    width: 100px;
 }
 
 h1 {
@@ -170,7 +169,7 @@ body {
 
 .flex_child {
     padding: 10px;
-    flex: 1;
+    width: 50%;
 }
 
 .extra_page {
