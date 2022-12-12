@@ -55,10 +55,22 @@
 
     <div class="content">
         <section class="main_page child">
-            
+			<div class="main_header">
+				<h1>MorePlayerModels Model Creator</h1>
+				<h2>by Valaron/Jakob</h2>
+			</div>
+			<div class="main_expl">
+                <h1>How To</h1>
+                <ul>
+                    <li>Fill out the fields of the site according to your model.</li>
+                    <li>Create a model you want to import with Blockbench and export it in the Bedrock format.</li>
+                    <li>Copy all the content of the "model.geo.json" you exported into the model section.</li>
+                    <li>Click on "Download" to get your finished model.</li>
+                </ul>
+            </div>
         </section>
         <section class="form_page child">
-            <div class="main_form flex_child">
+            <div class="main_form">
                 <h1>Form</h1>
                 <form onsubmit="download(
                     this['model_name'].value,
@@ -70,6 +82,10 @@
                     this['animation_type'].value,
                     this['model_json'].value
                     )">
+
+					<p>
+						Hover over the labels to get more information about the input.
+					</p>
 
 					<table>
 						<tr>
@@ -166,16 +182,6 @@
 					
 		        	<input id="button" type="submit" value="Download">
 		        </form>
-            </div>
-
-            <div class="main_expl flex_child">
-                <h1>How To</h1>
-                <ul>
-                    <li>Fill out the fields of the site according to your model.</li>
-                    <li>Create a model you want to import with Blockbench and export it in the Bedrock format.</li>
-                    <li>Copy all the content of the "model.geo.json" you exported into the model section.</li>
-                    <li>Click on "Download" to get your finished model.</li>
-                </ul>
             </div>
         </section>
         <section class="extra_page child">
