@@ -70,114 +70,54 @@
             </div>
         </section>
         <section class="form_page child">
-            <form onsubmit="download(
-                this['model_name'].value,
-                this['menu'].value,
-                this['part'].value,
-                this['author'].value,
-                this['texture_path'].value,
-                this['use_skin'].value,
-                this['animation_type'].value,
-                this['model_json'].value
-                )">
-				<h1>Form</h1>
-				<p>
-					Hover over the labels to get more information about the input.
-				</p>
-				<table>
-					<tr>
-						<td>
-							<label for="model_name" title="This is the name of your model and the .json file you get">Model
-								name:</label>
-						</td>
-						<td>
-							<input type="text" name="model_name" value="model">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label for="menu" title="You find your model under this category in the mod">Menu
-								category:</label>
-						</td>
-						<td>
-							<input type="text" name="menu" value="my_parts">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label for="part" title="Select the part the model is attached to">Part name:</label>
-						</td>
-						<td>
-							<select id="part" name="part">
-								<!-- NONE, HEAD, BODY, LEGS, ARMS, LEFT_ARM, RIGHT_ARM, LEFT_LEG, RIGHT_LEG -->
-								<option value="NONE" selected>None</option>
-								<option value="HEAD">Head</option>
-								<option value="BODY">Body</option>
-								<option value="LEGS">Legs</option>
-								<option value="ARMS">Arms</option>
-								<option value="LEFT_ARM">Left Arm</option>
-								<option value="RIGHT_ARM">Right Arm</option>
-								<option value="LEFT_LEG">Left Leg</option>
-								<option value="RIGHT_LEG">Right Leg</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label for="author" title="Your name a author of the model or other credits">Model author:</label>
-						</td>
-						<td>
-							<input type="text" name="author" value="My_Name">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label for="texture_path" title="The path to the texture of your model">Texture path:</label>
-						</td>
-						<td>
-							<input type="text" name="texture_path" value="textures/model_texture.png">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label for="use_skin" title="If this model can use the player skin a a texture">Can use player skin:</label>
-						</td>
-						<td>
-							<select id="use_skin" name="use_skin">
-								<!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
-								<option value=0 selected>False</option>
-								<option value=1>True</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label for="animation_type" title="The animation your part should be attached to/follow">Animation:</label>
-						</td>
-						<td>
-							<select id="animation_type" name="animation_type">
-								<!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
-								<option value="NONE" selected>None</option>
-								<option value="BEARD">Head</option>
-								<option value="HAIR">Body</option>
-								<option value="WINGS">Legs</option>
-								<option value="WINGS2">Arms</option>
-								<option value="LEGS">Left Arm</option>
-								<option value="ARMS">Right Arm</option>
-							</select>
-						</td>
-					</tr>
-					<tr class="tr_textarea">
-						<td>
-							<label for="model_json" title="The content of your model.geo.json file">Model JSON:</label>
-						</td>
-						<td>
-							<textarea name="model_json"></textarea>
-						</td>
-					</tr>
-				</table>
-				
-		        <input id="button" type="submit" value="Download">
+            <form>
+				<div class="column_left">
+					<label for="model_name" title="This is the name of your model and the .json file you get">Model name:</label>
+					<label for="menu" title="You find your model under this category in the mod">Menu category:</label>
+					<label for="part" title="Select the part the model is attached to">Part name:</label>
+					<label for="author" title="Your name a author of the model or other credits">Model author:</label>
+					<label for="texture_path" title="The path to the texture of your model">Texture path:</label>
+					<label for="use_skin" title="If this model can use the player skin a a texture">Use player skin:</label>
+					<label for="animation_type" title="The animation your part should be attached to/follow">Animation:</label>
+					<label for="model_json" title="The content of your model.geo.json file">Model JSON:</label>
+				</div>
+
+				<div class="column_right">
+					<input type="text" name="model_name" value="model">
+					<input type="text" name="menu" value="my_parts">
+					<select id="part" name="part">
+						<!-- NONE, HEAD, BODY, LEGS, ARMS, LEFT_ARM, RIGHT_ARM, LEFT_LEG, RIGHT_LEG -->
+						<option value="NONE" selected>None</option>
+						<option value="HEAD">Head</option>
+						<option value="BODY">Body</option>
+						<option value="LEGS">Legs</option>
+						<option value="ARMS">Arms</option>
+						<option value="LEFT_ARM">Left Arm</option>
+						<option value="RIGHT_ARM">Right Arm</option>
+						<option value="LEFT_LEG">Left Leg</option>
+						<option value="RIGHT_LEG">Right Leg</option>
+					</select>
+					<input type="text" name="author" value="My_Name">
+					<input type="text" name="texture_path" value="textures/model_texture.png">
+					<select id="use_skin" name="use_skin">
+						<!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
+						<option value=0 selected>False</option>
+						<option value=1>True</option>
+					</select>
+					<select id="animation_type" name="animation_type">
+						<!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
+						<option value="NONE" selected>None</option>
+						<option value="BEARD">Head</option>
+						<option value="HAIR">Body</option>
+						<option value="WINGS">Legs</option>
+						<option value="WINGS2">Arms</option>
+						<option value="LEGS">Left Arm</option>
+						<option value="ARMS">Right Arm</option>
+					</select>
+					<textarea name="model_json"></textarea>
+				</div>
+
+				<input id="button" type="submit" value="Download">
 		    </form>
         </section>
         <section class="extra_page child">

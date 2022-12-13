@@ -45,41 +45,12 @@ a {
     color: #EEE5E9;
 }
 
-p, li, label {
+p, li {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: 300;
     line-height: 20px;
     color: #EEE5E9;
-}
-
-input, select, textarea {
-    height: 25px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #92DCE5;
-    color: #474e5c;
-    font-weight: 600;
-    border: 0;
-}
-
-textarea {
-    resize: none;
-    height: 100%;
-}
-
-input[type="submit"] {
-    background-color: #474e5c;
-    color: #EEE5E9;
-    font-weight: 600;
-    font-size: larger;
-    height: 60px;
-    border: 0;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #D64933;
 }
 
 h1 {
@@ -185,6 +156,8 @@ body {
     background-color: #92DCE5;
 }
 
+
+/* Form Page */
 .form_page {
     background-color: #696969;
     padding: 20px;
@@ -195,17 +168,68 @@ body {
     height: 100%;
 }
 
-.form_page table {
+.form_page form .column_left {
+    width: 30%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_page form .column_right {
+    width: 70%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_page form label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 25px;
+    color: #EEE5E9;
+    margin-bottom: 5px;
+    flex-grow: 1;
+}
+
+.form_page form input,select,textarea {
+    height: 25px;
     width: 100%;
-    height: 75%;
+    box-sizing: border-box;
+    background-color: #92DCE5;
+    color: #474e5c;
+    font-weight: 600;
+    border: 0;
+    margin-bottom: 5px;
+    flex-grow: 1;
+}
+
+.form_page form textarea {
+    resize: none;
+    flex-grow: 5;
 }
 
 .form_page form input[type="submit"] {
+    background-color: #474e5c;
+    color: #EEE5E9;
+
+    font-weight: 600;
+    font-size: larger;
+    
+    height: 60px;
+    border: 0;
+    cursor: pointer;
     position: absolute;
     bottom: 20px;
     left: 0;
 }
 
+.form_page form input[type="submit"]:hover {
+    background-color: #D64933;
+}
+
+
+/* Extra Page */
 .extra_page {
     background-color: #92DCE5;
 }
