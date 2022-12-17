@@ -8,25 +8,22 @@
 </head>
 
 <body>
-    <div class="nav_bar items">
-        <div class="nav_bar_header">
-            <h1>MPM Model Creator</h1>
-            <h2>by Valaron/Jakob</h2>
-        </div>
-        <div class="nav_bar_item">
-            <a href="index_new.html">Home</a>
-        </div>
-        <div class="nav_bar_item">
-            <a href="index_new.html">Form</a>
-        </div>
-        <div class="nav_bar_item">
-            <a href="index_new.html">Extra</a>
-        </div>
+    <div class="nav_bar">
+    	<div class="nav_bar_header nav_item">
+    	    <h1>MPM Model Creator</h1>
+    	    <h3>by Valaron/Jakob</h3>
+    	</div>
+
+		<div class="nav_bar_items">
+    		<a href="#home" class="nav_bar_item nav_item">Home</a>
+    		<a href="#form" class="nav_bar_item nav_item">Form</a>
+        	<a href="#extra" class="nav_bar_item nav_item">Extra</a>
+		</div>
     </div>
 
     <div class="res_bar">
         <div class="res_content">
-            <h1>Resources</h1>
+            <h2>Resources</h2>
             <p>MorePlayerModels (by Noppes)</p>
 		    <ul>
 		    	<li><a href="https://discord.com/invite/9xZuaA4">Discord</a></li>
@@ -45,35 +42,58 @@
 		    	<li><a href="https://www.youtube.com/watch?v=8HjqzONnsek&ab_channel=GigaBlast02">GigaBlast</a>
 		    	</li>
 		    </ul>
-
-            <p>This site is not properly tested as of right now and lacks some features, so please use it with
-                caution.
-                Report bugs and errors on the GitHub issue tracker.</p>
-            <a href="https://github.com/Valaron-Jakob/MorePlayerModels-ModelCreator/issues">GitHub Issues</a>
-        </div>
+			<div class="res_cont_footer"> 
+            	<p>This site is not properly tested as of right now and lacks some features, so please use it with
+                	caution.<br>
+                	Report bugs and errors on the GitHub issue tracker.</p>
+            	<a href="https://github.com/Valaron-Jakob/MorePlayerModels-ModelCreator/issues">GitHub Issues</a>		
+			</div>
+		</div>
     </div>
 
     <div class="content">
-        <section class="main_page child">
+        <section id="home" class="main_page child">
+		<div class="main_column_left">
 			<div class="main_header">
-				<h1>MorePlayerModels Model Creator</h1>
-				<h2>by Valaron/Jakob</h2>
+				<h1>MorePlayerModels<br>Model Creator</h1>
+				<h3>by Valaron/Jakob</h3>
 			</div>
 			<div class="main_expl">
-                <h1>How To</h1>
+                <h2>What is this?</h2>
+            	<p>
+					This is a tool to convert models from Blockbench to the MorePlayerModels mod. It is not a replacement for Blockbench, but
+					instead a tool to make the process of creating models easier.
+				</p>
+				<p>
+					I have created this tool to make the process of converting and configuring models for the mod easier and faster.
+				</p>
+            </div>
+			<br>
+			<div class="main_howto">
+                <h2>How To</h2>
                 <ul>
-                    <li>Fill out the fields of the site according to your model.</li>
+                    <li>Fill out the fields on the form page below according to your model.</li>
                     <li>Create a model you want to import with Blockbench and export it in the Bedrock format.</li>
-                    <li>Copy all the content of the "model.geo.json" you exported into the model section.</li>
-                    <li>Click on "Download" to get your finished model.</li>
+                    <li>Copy all the content of the "model.geo.json" you exported into the model section on the form.</li>
+                    <li>Click on "Download" to get your finished model in the MPM format.</li>
                 </ul>
             </div>
-        </section>
-        <section class="form_page child">
-            <form>
+        </div>
+		<div class="main_column_right">
+			<img src="https://media.discordapp.net/attachments/714242847074811985/1053268811891097721/image.png" alt="Example model">
+		</div>
+		</section>
+        <section id="form" class="form_page child">
+            <div class="form_header">
+				<h2>Form</h2>
+				<p>
+					Hover over the labels to get more information about the input.
+				</p>
+			</div>
+			<form>
 				<div class="column_left">
 					<label for="model_name" title="This is the name of your model and the .json file you get">Model name:</label>
-					<label for="menu" title="You find your model under this category in the mod">Menu category:</label>
+				<label for="menu" title="You find your model under this category in the mod">Menu category:</label>
 					<label for="part" title="Select the part the model is attached to">Part name:</label>
 					<label for="author" title="Your name a author of the model or other credits">Model author:</label>
 					<label for="texture_path" title="The path to the texture of your model">Texture path:</label>
@@ -81,7 +101,7 @@
 					<label for="animation_type" title="The animation your part should be attached to/follow">Animation:</label>
 					<label for="model_json" title="The content of your model.geo.json file">Model JSON:</label>
 				</div>
-
+		
 				<div class="column_right">
 					<input type="text" name="model_name" value="model">
 					<input type="text" name="menu" value="my_parts">
@@ -115,12 +135,11 @@
 						<option value="ARMS">Right Arm</option>
 					</select>
 					<textarea name="model_json"></textarea>
+					<input id="button" type="submit" value="Download">
 				</div>
-
-				<input id="button" type="submit" value="Download">
-		    </form>
+			</form>
         </section>
-        <section class="extra_page child">
+        <section id="extra" class="extra_page child">
             
         </section>
         
