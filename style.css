@@ -39,25 +39,25 @@ html {
 
 p, a, li, h1, h2, h3, label, input, select, textarea {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.5rem;
+    font-size: 2.8vh;
     font-weight: 300;
-    line-height: 28px;
+    line-height: 3vh;
     color: #d8b174;
 }
 
 h1 {
     /* Styling */
-    font-size: 2.5rem;
+    font-size: 6vh;
     font-weight: 700;
-    line-height: 35px;
+    line-height: 6vh;
     margin: 0;
 
-    font-family: 'Changa One', cursive;
+    font-family: 'Saira Stencil One';
 }
 
 h2 {
     /* Styling */
-    font-size: 2rem;
+    font-size: 4vh;
     font-weight: 700;
     margin: 0;
 }
@@ -106,14 +106,15 @@ body {
 
 .nav_bar_item {
     /* Font */
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5em;
+    font-size: 4vh;
     font-weight: 500;
 
     /* Styling */
     background-color: #3c1125;
     cursor: pointer;
     text-decoration: none;
+    
+    transition: 0.5s;
 }
 
 /* Navigation Bar - Hover */
@@ -172,7 +173,7 @@ body {
 .child {
     scroll-snap-align: start;
     height: 100vh;
-    padding: 30px;
+    padding: 6vh;
 }
 
 .main_page {
@@ -202,6 +203,7 @@ body {
 
 .form_page .form_header {
     height: 20%;
+    width: 60%;
 }
 
 .form_page form {
@@ -225,19 +227,26 @@ body {
 }
 
 .form_page form label {
-    line-height: 30px;
+    line-height: 4vh;
     color: #d8b174;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+}
+
+.form_page form p {
+    color: #b34a32;
+    margin-top: auto;
+    max-width: 80%;
 }
 
 .form_page form input,select,textarea {
-    min-height: 30px;
+    background-color: #8b272b;
+    color:#d8b174;
+
+    min-height: 4vh;
     width: 100%;
     box-sizing: border-box;
-    background-color: #b34a32;
-    color: #14060f;
     border: 0;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 .form_page form textarea {
@@ -247,18 +256,21 @@ body {
 
 .form_page form input[type="submit"] {
     background-color: #14060f;
-    color: #d8b174;
+    color: #b34a32;
     cursor: pointer;
 
     font-weight: 600;
-    font-size: larger;
+    font-size: 3vh;
     
-    height: 60px;
+    height: 10vh;
     margin-bottom: 0;
+    
+    transition: 0.5s;
 }
 
 .form_page form input[type="submit"]:hover {
     background-color: #8b272b;
+    color: #14060f;
 }
 
 
