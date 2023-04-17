@@ -10,6 +10,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+
+	<script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
@@ -96,7 +98,17 @@
 					Input all the information about your model here and paste the Blockbench model inside the big textarea.
 				</p>
 			</div>
-			<form>
+			<form onsubmit="download(
+				this['model_name'].value,
+				this['menu'].value,
+				this['part'].value,
+				this['author'].value,
+				this['texture_path'].value,
+				this['use_skin'].value,
+				this['animation_type'].value,
+				this['preview_rotation'].value,
+				this['model_json'].value
+				)">
 				<div class="column_left">
 					<label for="model_name" title="This is the name of your model and the .json file you get">Model name:</label>
 					<label for="menu" title="You find your model under this category in the mod">Menu category:</label>
@@ -113,8 +125,8 @@
 				</div>
 		
 				<div class="column_right">
-					<input type="text" name="model_name" value="model">
-					<input type="text" name="menu" value="my_parts">
+					<input type="text" name="model_name" value="model_name">
+					<input type="text" name="menu" value="menu_category">
 					<select id="part" name="part">
 						<!-- NONE, HEAD, BODY, LEGS, ARMS, LEFT_ARM, RIGHT_ARM, LEFT_LEG, RIGHT_LEG -->
 						<option value="NONE" selected>None</option>
@@ -127,7 +139,7 @@
 						<option value="LEFT_LEG">Left Leg</option>
 						<option value="RIGHT_LEG">Right Leg</option>
 					</select>
-					<input type="text" name="author" value="My_Name">
+					<input type="text" name="author" value="your_name">
 					<input type="text" name="texture_path" value="textures/model_texture.png">
 					<select id="use_skin" name="use_skin">
 						<!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
