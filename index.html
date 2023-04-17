@@ -1,205 +1,195 @@
-<style>
-  form label {
-    
-    display: block;
-  }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MPM - Model Creator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+	<link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/714242847074811985/1030866187367759953/mpm_icon_small.png">
 
-  input,select {
-    height: 30px;
-    width: 50%;
-  }
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
 
-  textarea {
-    height: 50%;
-    width: 50%;
-  }
-
-  a {
-    color: #9A8C98;
-  }
-
-  h2 {
-    color: #9A8C98;
-  }
-
-  body {
-    color: #22223B;
-    background-color: #9A8C98;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .content {
-    margin-left: 32%;
-    padding: 30px;
-  }
-
-  .how_to {
-    padding: 20px;
-    height: 100%;
-    width: 30%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    color: #F2E9E4;
-    background-color: #22223B;
-    overflow-x: hidden;
-  }
-</style>
+	<script type="text/javascript" src="script.js"></script>
+</head>
 
 <body>
-  <div class="content">
-    <form onsubmit="download(
-      this['model_name'].value,
-      this['menu'].value,
-      this['part'].value,
-      this['author'].value,
-      this['texture_path'].value,
-      this['use_skin'].value,
-      this['animation_type'].value,
-      this['model_json'].value
-      )">
-      
-          <div>
-            <label for="model_name" title="This is the name of your model and the .json file you get">Model name:</label>
-            <input type="text" name="model_name" value="model">
+    <div class="nav_bar">
+		<div class="nav_bar_items">
+			<div class="nav_bar_header nav_item">
+    	    	<h1>MPM Model Creator</h1>
+    	    	<h3>by Valaron/Jakob</h3>
+    		</div>
 
-            <label for="menu" title="You find your model under this category in the mod">Menu category:</label>
-            <input type="text" name="menu" value="my_parts">
+    		<a href="#home" class="nav_bar_item nav_item">Home</a>
+    		<a href="#form" class="nav_bar_item nav_item">Form</a>
+        	<a href="#extra" class="nav_bar_item nav_item">Extra</a>
 
-            <label for="part" title="Select the part the model is attached to">Part name:</label>
-            <select id="part">
-              <!-- NONE, HEAD, BODY, LEGS, ARMS, LEFT_ARM, RIGHT_ARM, LEFT_LEG, RIGHT_LEG -->
-              <option value="NONE" selected>None</option>
-	      <option value="HEAD">Head</option>
-	      <option value="BODY">Body</option>
-	      <option value="LEGS">Legs</option>
-              <option value="ARMS">Arms</option>
-	      <option value="LEFT_ARM">Left Arm</option>
-	      <option value="RIGHT_ARM">Right Arm</option>
-              <option value="LEFT_LEG">Left Leg</option>
-	      <option value="RIGHT_LEG">Right Leg</option>
-            </select>
-
-            <label for="author" title="Your name a author of the model or other credits">Model author:</label>
-            <input type="text" name="author" value="My_Name">
-          </div>
-          
-            <label for="texture_path" title="The path to the texture of your model">Texture path:</label>
-            <input type="text" name="texture_path" value="textures/model_texture.png">
-
-            <label for="use_skin" title="If this model can use the player skin a a texture">Can use player skin:</label>
-            <select id="use_skin">
-              <!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
-              <option value=0 selected>False</option>
-	      <option value=1>True</option>
-            </select>
-
-            <label for="animation_type" title="The animation your part should be attached to/follow">Animation:</label>
-            <select id="animation_type">
-              <!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
-              <option value="NONE" selected>None</option>
-	      <option value="BEARD">Head</option>
-	      <option value="HAIR">Body</option>
-	      <option value="WINGS">Legs</option>
-              <option value="WINGS2">Arms</option>
-	      <option value="LEGS">Left Arm</option>
-	      <option value="ARMS">Right Arm</option>
-            </select>
-
-      <label for="model_json" title="The content of your model.geo.json file">Model JSON:</label>
-      <textarea name="model_json"></textarea>
-
-      <input id="button" type="submit" value="Download">
-    </form>
-  </div>
-
-  <div class="how_to">
-    <div>
-      <div>
-        <h2>MorePlayerModels - Model Creator</h2>
-        <p style="color:#9A8C98">Made by Valaron/Jakob</p>
-        <p>This tool is just a simple script to convert Blockbench models into the current format used by MorePlayerModels.</p>
-      </div>
-
-      <div>
-        <h2>How To</h2>
-        <ul>
-          <li>Fill out the fields of the site according to your model.</li>
-          <li>Create a model you want to import with Blockbench and export it in the Bedrock format.</li>
-          <li>Copy all the content of the "model.geo.json" you exported into the model section.</li>
-          <li>Click on "Download" to get your finished model.</li>
-        </ul>
-      </div>
-
-      <br>
-
-      <div>
-        <p>This site is not properly tested as of right now and lacks some features, so please use it with caution. Report bugs and errors on the GitHub issue tracker.</p>
-        <a href="https://github.com/Valaron-Jakob/MorePlayerModels-ModelCreator/issues">GitHub Issues</a>
-      </div>
-
-      <div>
-        <h2>Ressources</h2>
-        <p>- MorePlayerModels (by Noppes)</p>
-        <ul>
-          <li>Discord: <a href="https://discord.com/invite/9xZuaA4">Link</a></li>
-          <li>CurseForge: <a href="https://www.curseforge.com/minecraft/mc-mods/more-player-models">Link</a></li>
-          <li>Website: <a href="http://www.kodevelopment.nl/minecraft/2022/05/21/model-json-creation/">Link</a></li>
-        </ul>
-        <p>- Blockbench (by Jannis)</p>
-        <ul>
-          <li>Discord: <a href="https://discord.com/invite/blockbench">Link</a></li>
-          <li>Website: <a href="https://www.blockbench.net/">Link</a></li>
-        </ul>
-        <p>- Video tutorials</p>
-        <ul>
-          <li>Noppes: <a href="https://youtu.be/wXK-uBOnTFQ">Link</a></li>
-          <li>GigaBlast: <a href="https://www.youtube.com/watch?v=8HjqzONnsek&ab_channel=GigaBlast02">Link</a></li>
-        </ul>
-      </div>
+			<div class="nav_cont_footer"> 
+         		<p>This site is not properly tested as of right now and lacks some features, so please use it with
+            		caution.<br>
+            		Report bugs and errors on the GitHub issue tracker.</p>
+            	<a href="https://github.com/Valaron-Jakob/MorePlayerModels-ModelCreator/issues">GitHub Issues</a>		
+			</div>
+		</div>
     </div>
-  </div>
 
-  <script>
-    function download(model_name, menu, part, author, texture_path, use_skin, animation, model_json) {
-      let element = document.createElement('a')
-      let model = JSON.parse(model_json)
-      let conversation = {
-            name: model_name,
-            menu: `part.${menu}`,
-            author: author,
-            body_part: part,
-            hidden_parts: [],
-            texture: `moreplayermodels:${texture_path}`,
-            
-            can_use_player_skin: false,
+    <div class="res_bar">
+        <div class="res_content">
+            <h2>Resources</h2>
+            <p>MorePlayerModels<br>(by Noppes)</p>
+		    <ul>
+		    	<li><a href="https://discord.com/invite/9xZuaA4">Discord</a></li>
+		    	<li><a href="https://www.curseforge.com/minecraft/mc-mods/more-player-models">CurseForge</a>
+		    	</li>
+		    	<li><a href="http://www.kodevelopment.nl/minecraft/2022/05/21/model-json-creation/">Website</a></li>
+		    </ul>
+		    <p>Blockbench<br>(by Jannis)</p>
+		    <ul>
+		    	<li><a href="https://discord.com/invite/blockbench">Discord</a></li>
+		    	<li><a href="https://www.blockbench.net/">Website</a></li>
+		    </ul>
+		    <p>Video tutorials</p>
+		    <ul>
+		    	<li><a href="https://youtu.be/wXK-uBOnTFQ">Noppes</a></li>
+		    	<li><a href="https://www.youtube.com/watch?v=8HjqzONnsek&ab_channel=GigaBlast02">GigaBlast</a>
+		    	</li>
+		    </ul>
+		</div>
+    </div>
 
-            preview_rotation: 45,
-            //translate: [0, 0, 0],
-            //scale: [1, 1, 1],
-            //rotate: [0, 0, 0],
-            //rotate_offset: [0, 0, 0],
-
-            animation_type: animation,
-            
-            render_type: "bedrock",
-            render_data: model
-        }
-      
-      	if (use_skin == 1) {
-	    conversation.can_use_player_skin = true
-	}
-
-        element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(conversation, null, "\t")))
-        element.setAttribute('download', `${model_name}.json`)
-
-        element.style.display = 'none'
-        document.body.appendChild(element)
-
-        element.click();
-
-        document.body.removeChild(element)
-    }
-  </script>
+    <div class="content">
+        <section id="home" class="main_page child">
+		<div class="main_column_left">
+			<div class="main_header">
+				<h1>MorePlayerModels<br>Model Creator</h1>
+				<h3>by Valaron/Jakob</h3>
+			</div>
+			<div class="main_expl">
+                <h2>What is this?</h2>
+            	<p>
+					This is a tool to convert models from Blockbench to the MorePlayerModels mod. It is not a replacement for Blockbench, but
+					instead a tool to make the process of creating models easier.
+				</p>
+				<p>
+					I have created this tool to make the process of converting and configuring models for the mod easier and faster.
+				</p>
+            </div>
+			<br>
+			<div class="main_howto">
+                <h2>How To</h2>
+                <ul>
+                    <li>Fill out the fields on the form page below according to your model.</li>
+                    <li>Create a model you want to import with Blockbench and export it in the Bedrock format.</li>
+                    <li>Copy all the content of the "model.geo.json" you exported into the model section on the form.</li>
+                    <li>Click on "Download" to get your finished model in the MPM format.</li>
+                </ul>
+            </div>
+        </div>
+		<div class="main_column_right">
+			<img src="https://media.discordapp.net/attachments/714242847074811985/1053268811891097721/image.png" alt="Example model">
+		</div>
+		</section>
+        <section id="form" class="form_page child">
+            <div class="form_header">
+				<h2>Form</h2>
+				<p>
+					Input all the information about your model here and paste the Blockbench model inside the big textarea.
+				</p>
+			</div>
+			<form onsubmit="download(
+				this['model_name'].value,
+				this['menu'].value,
+				this['part'].value,
+				this['author'].value,
+				this['texture_path'].value,
+				this['use_skin'].value,
+				this['animation_type'].value,
+				this['preview_rotation'].value,
+				this['model_json'].value
+				)">
+				<div class="column_left">
+					<label for="model_name" title="This is the name of your model and the .json file you get">Model name:</label>
+					<label for="menu" title="You find your model under this category in the mod">Menu category:</label>
+					<label for="part" title="Select the part the model is attached to">Part name:</label>
+					<label for="author" title="Your name a author of the model or other credits">Model author:</label>
+					<label for="texture_path" title="The path to the texture of your model">Texture path:</label>
+					<label for="use_skin" title="If this model can use the player skin a a texture">Use player skin:</label>
+					<label for="animation_type" title="The animation your part should be attached to/follow">Animation:</label>
+					<label for="preview_rotation" title="The rotation in the menu preview">Preview Rotation:</label>
+					<label for="model_json" title="The content of your model.geo.json file">Model JSON:</label>
+					<p>
+						&#x26A0; Hover over the labels to get more information about the input.
+					</p>
+				</div>
+		
+				<div class="column_right">
+					<input type="text" name="model_name" value="model_name">
+					<input type="text" name="menu" value="menu_category">
+					<select id="part" name="part">
+						<!-- NONE, HEAD, BODY, LEGS, ARMS, LEFT_ARM, RIGHT_ARM, LEFT_LEG, RIGHT_LEG -->
+						<option value="NONE" selected>None</option>
+						<option value="HEAD">Head</option>
+						<option value="BODY">Body</option>
+						<option value="LEGS">Legs</option>
+						<option value="ARMS">Arms</option>
+						<option value="LEFT_ARM">Left Arm</option>
+						<option value="RIGHT_ARM">Right Arm</option>
+						<option value="LEFT_LEG">Left Leg</option>
+						<option value="RIGHT_LEG">Right Leg</option>
+					</select>
+					<input type="text" name="author" value="your_name">
+					<input type="text" name="texture_path" value="textures/model_texture.png">
+					<select id="use_skin" name="use_skin">
+						<!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
+						<option value=0 selected>False</option>
+						<option value=1>True</option>
+					</select>
+					<select id="animation_type" name="animation_type">
+						<!-- NONE, BEARD, HAIR, WINGS, WINGS2, LEGS, ARMS -->
+						<option value="NONE" selected>None</option>
+						<option value="BEARD">Head</option>
+						<option value="HAIR">Body</option>
+						<option value="WINGS">Legs</option>
+						<option value="WINGS2">Arms</option>
+						<option value="LEGS">Left Arm</option>
+						<option value="ARMS">Right Arm</option>
+					</select>
+					<input type="text" name="preview_rotation" value="45">
+					<textarea name="model_json"></textarea>
+					<input id="button" type="submit" value="Download">
+				</div>
+			</form>
+        </section>
+        <section id="extra" class="extra_page child">
+			<div class="extra_column_left">
+				<img src="https://media.discordapp.net/attachments/714242847074811985/1010959742019055626/unknown.png" alt="Example model 2">
+				<img src="https://media.discordapp.net/attachments/714242847074811985/1054044414244298842/image.png" alt="Example code snippet 2">
+			</div>
+			<div class="extra_column_right">
+				<h2>Extras</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
+					et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+					Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, 
+					consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+					sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea 
+					takimata sanctus est Lorem ipsum dolor sit amet.
+				</p>
+				<br>
+				<h2>More Extras</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
+					et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+					Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, 
+					consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+					sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea 
+					takimata sanctus est Lorem ipsum dolor sit amet.
+				</p>
+            </div>
+        </section>
+        
+    </div>
 </body>
+</html>
