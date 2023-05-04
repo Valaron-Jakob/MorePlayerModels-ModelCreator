@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 
+// Setting up the scene
 let box = document.querySelector('#render_container');
 let width = box.clientWidth;
 let height = box.clientHeight;
@@ -16,21 +17,12 @@ document.getElementById( 'render_container' ).appendChild( renderer.domElement )
 // Setting background color
 scene.background = new THREE.Color( 0x282a2c );
 
-// Adding lights
-const ambientLight = new THREE.AmbientLight( 0xffffff, 0.6 );
-scene.add( ambientLight );
-
-const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.6 );
-directionalLight.position.set( 10, 20, 0 ); // x, y, z
-scene.add( directionalLight );
-
-
 // Concept objects
 //
 // cubes and groups(bones)
 // group:   pivot, rotation, subgroups/cubes
 // cube:    pivot, rotation, origin, size, color
-const test_group = {
+const hat = {
     pivot: [ 0, 0, 0 ],
     rotation: [ 0, 0, 0 ],
     cubes: [
@@ -81,69 +73,181 @@ const test_group = {
     ]
 }
 
-const player = {
-    pivot: [ 0, 0, 0 ],
-    rotation: [ 0, 0, 0 ],
-    cubes: [
-        {
-            origin: [ -4, 24, -4 ],
-            size: [ 8, 8, 8 ],
-            pivot: [ 0, 24, 0 ],
-            rotation: [ -6, 5, 0 ]
-        },
-        {
-            origin: [ -4, 12, -2 ],
-            size: [ 8, 12, 4 ],
-            pivot: [ 0, 24, 0 ],
-            rotation: [ 0, 0, 0 ]
-        },
-        {
-            origin: [ -8, 12, -2 ],
-            size: [ 4, 12, 4 ],
-            pivot: [ -5, 22, 0 ],
-            rotation: [ -10, 0, 0 ]
-        },
-        {
-            origin: [ 4, 12, -2 ],
-            size: [ 4, 12, 4 ],
-            pivot: [ 5, 22, 0 ],
-            rotation: [ 12, 0, 0 ]
-        },
-        {
-            origin: [ -3.9, 0, -2 ],
-            size: [ 4, 12, 4 ],
-            pivot: [ -1.9, 12, 0 ],
-            rotation: [ 11, 0, 2 ]
-        },
-        {
-            origin: [ -0.1, 0, -2 ],
-            size: [ 4, 12, 4 ],
-            pivot: [ 1.9, 12, 0 ],
-            rotation: [ -10, 0, -2 ]
-        }
-    ],
-    groups: []
-}
+// "pivot": [-1, -5, 1.85],
+// "rotation": [-2.5, 0, -32.5],
+// "cubes": [
+//     {"origin": [-1, -21, 1.85], "size": [1, 31, 1], "uv": [0, 0]},
+//     {"origin": [-1, -22, 1.85], "size": [1, 1, 1], "inflate": 0.2, "uv": [10, 2]},
+//     {"origin": [-1, -11, 1.85], "size": [1, 1, 1], "inflate": 0.2, "uv": [10, 0]},
+//     {"origin": [-1, -2, 1.85], "size": [1, 1, 1], "inflate": 0.2, "uv": [8, 8]},
+//     {"origin": [-1, 8, 1.85], "size": [1, 1, 1], "inflate": 0.2, "uv": [4, 8]},
+//     {"origin": [-2, 7, 2.35], "size": [3, 8, 0], "uv": [4, 0]}
 
-createModel(scene, player);
+const spear = [
+    {
+        pivot: [ -1, -5, 1.85 ],
+        rotation: [ -2.5, 0, -32.5 ],
+        cubes: [
+            {
+                origin: [ -1, -21, 1.85 ],
+                size: [ 1, 31, 1 ],
+                pivot: [ 0, 0, 0 ],
+                rotation: [ 0, 0, 0 ]
+            },
+            {
+                origin: [ -1, -22, 1.85 ],
+                size: [ 1, 1, 1 ],
+                pivot: [ 0, 0, 0 ],
+                rotation: [ 0, 0, 0 ]
+            },
+            {
+                origin: [ -1, -11, 1.85 ],
+                size: [ 1, 1, 1 ],
+                pivot: [ 0, 0, 0 ],
+                rotation: [ 0, 0, 0 ]
+            },
+            {
+                origin: [ -1, -2, 1.85 ],
+                size: [ 1, 1, 1 ],
+                pivot: [ 0, 0, 0 ],
+                rotation: [ 0, 0, 0 ]
+            },
+            {
+                origin: [ -1, 8, 1.85 ],
+                size: [ 1, 1, 1 ],
+                pivot: [ 0, 0, 0 ],
+                rotation: [ 0, 0, 0 ]
+            },
+            {
+                origin: [ -2, 7, 2.35 ],
+                size: [ 3, 8, 0 ],
+                pivot: [ 0, 0, 0 ],
+                rotation: [ 0, 0, 0 ]
+            }
+        ],
+        groups: []
+    }
+]
 
-function createModel(scene, data) {
-    addGroup(scene, data)
+const player = [
+    {
+        pivot: [ 0, 0, 0 ],
+        rotation: [ 0, 0, 0 ],
+        cubes: [
+            {
+                origin: [ -4, 24, -4 ],
+                size: [ 8, 8, 8 ],
+                pivot: [ 0, 24, 0 ],
+                rotation: [ -6, 5, 0 ]
+            },
+            {
+                origin: [ -4, 12, -2 ],
+                size: [ 8, 12, 4 ],
+                pivot: [ 0, 24, 0 ],
+                rotation: [ 0, 0, 0 ]
+            },
+            {
+                origin: [ -8, 12, -2 ],
+                size: [ 4, 12, 4 ],
+                pivot: [ -5, 22, 0 ],
+                rotation: [ -10, 0, 0 ]
+            },
+            {
+                origin: [ 4, 12, -2 ],
+                size: [ 4, 12, 4 ],
+                pivot: [ 5, 22, 0 ],
+                rotation: [ 12, 0, 0 ]
+            },
+            {
+                origin: [ -3.9, 0, -2 ],
+                size: [ 4, 12, 4 ],
+                pivot: [ -1.9, 12, 0 ],
+                rotation: [ 11, 0, 2 ]
+            },
+            {
+                origin: [ -0.1, 0, -2 ],
+                size: [ 4, 12, 4 ],
+                pivot: [ 1.9, 12, 0 ],
+                rotation: [ -10, 0, -2 ]
+            }
+        ],
+        groups: [
+            {
+                pivot: [ 0, 24, 0 ],
+                rotation: [ 0, 0, 0 ],
+                cubes: [],
+                groups: [
+                    {
+                        pivot: [ -1, -5, 1.85 ],
+                        rotation: [ -2.5, 0, -32.5 ],
+                        cubes: [
+                            {
+                                origin: [ -1, -21, 1.85 ],
+                                size: [ 1, 31, 1 ],
+                                pivot: [ 0, 0, 0 ],
+                                rotation: [ 0, 0, 0 ]
+                            },
+                            {
+                                origin: [ -1, -22, 1.85 ],
+                                size: [ 1, 1, 1 ],
+                                pivot: [ 0, 0, 0 ],
+                                rotation: [ 0, 0, 0 ]
+                            },
+                            {
+                                origin: [ -1, -11, 1.85 ],
+                                size: [ 1, 1, 1 ],
+                                pivot: [ 0, 0, 0 ],
+                                rotation: [ 0, 0, 0 ]
+                            },
+                            {
+                                origin: [ -1, -2, 1.85 ],
+                                size: [ 1, 1, 1 ],
+                                pivot: [ 0, 0, 0 ],
+                                rotation: [ 0, 0, 0 ]
+                            },
+                            {
+                                origin: [ -1, 8, 1.85 ],
+                                size: [ 1, 1, 1 ],
+                                pivot: [ 0, 0, 0 ],
+                                rotation: [ 0, 0, 0 ]
+                            },
+                            {
+                                origin: [ -2, 7, 2.35 ],
+                                size: [ 3, 8, 0 ],
+                                pivot: [ 0, 0, 0 ],
+                                rotation: [ 0, 0, 0 ]
+                            }
+                        ],
+                        groups: []
+                    }
+                ]
+            }
+        ]
+    }
+]
 
-    addCubes(scene, data.cubes)
-}
+addGroups(scene, player)
 
-function addGroup(parent, child) {
-    let pivot = child.pivot;
-    let rotation = child.rotation;
+function addGroups(parent, childs) {
+    let childs_group = new THREE.Group();
 
-    const group = new THREE.Group();
-    group.position.set( pivot[0], pivot[1], pivot[2] );
-    group.rotation.set( toRad(rotation[0]), toRad(rotation[1]), toRad(rotation[2]) );
-
-    parent.add( group );
+    childs.forEach(child => {
+        let pivot = child.pivot;
+        let rotation = child.rotation;
+        let cubes = child.cubes;
+        let groups = child.groups;
     
-    return group;
+        const group = new THREE.Group();
+        group.position.set( pivot[0], pivot[1], pivot[2] );
+        group.rotation.set( -toRad(rotation[0]), -toRad(rotation[1]), -toRad(rotation[2]) );
+        
+        addCubes(group, cubes);
+        addGroups(group, groups);
+        childs_group.add( group );
+    });
+    
+    parent.add( childs_group );
+    return childs_group;
 }
 
 function addCubes(parent, childs) {
@@ -156,7 +260,7 @@ function addCubes(parent, childs) {
         let pivot = child.pivot;
 
         const geometry = new THREE.BoxGeometry( size[0], size[1], size[2] );
-        const material = new THREE.MeshLambertMaterial({ color: 0x00ff00 });
+        const material = new THREE.MeshLambertMaterial({ color: 0x8b272b });
         const cube = new THREE.Mesh( geometry, material );
         
         // Rotate around a pivot
@@ -168,6 +272,7 @@ function addCubes(parent, childs) {
 
         childs_group.add( group );
     });
+
     parent.add( childs_group );
     return childs_group
 }
@@ -210,8 +315,21 @@ function addCubes(parent, childs) {
 scene.add( new THREE.AxesHelper(20) );
 
 // Setting camera position
-camera.position.set(-20, 32, -32);
-camera.lookAt(0, 12, 0);
+const c_rad = 32;
+const c_height = 22;
+let c_angle = -0.65 * Math.PI;
+let pos = rotateDeg([0, 0], c_rad, c_angle);
+
+camera.position.set(pos[0], c_rad, pos[1]);
+camera.lookAt(0, c_height, 0);
+
+// Adding lights
+const ambientLight = new THREE.AmbientLight( 0xffffff, 0.6 );
+scene.add( ambientLight );
+
+const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.6 );
+directionalLight.position.set(pos[0], c_rad+8, pos[1]);
+scene.add( directionalLight );
 
 
 function animate() {
@@ -220,9 +338,39 @@ function animate() {
 }
 animate();
 
+// function onWindowResize() {
+//     let element = document.getElementById('render_container');
+//     camera.aspect = element.innerWidth / element.innerHeight;
+//     camera.updateProjectionMatrix();
+//     renderer.setSize( element.innerWidth, element.innerHeight );
+// }
+// window.addEventListener( 'resize', onWindowResize, false );
 
+// Rotate the camera on button click
+document.getElementById('rot_right').addEventListener('click', function () {
+    rotateCam(1/4 * Math.PI)
+});
+document.getElementById('rot_left').addEventListener('click', function () {
+    rotateCam(-1/4 * Math.PI)
+});
 
 // Helper functions
 function toRad(angle) {
     return angle * (Math.PI / 180);
+}
+
+function rotateDeg(origin, radius, angle) {
+    return [
+        origin[0] + radius * Math.cos(angle),
+        origin[1] + radius * Math.sin(angle)
+    ];
+}
+
+function rotateCam(angle) {
+    c_angle += angle;
+    pos = rotateDeg([ 0, 0 ], c_rad, c_angle);
+
+    camera.position.set(pos[0], c_rad, pos[1]);
+    directionalLight.position.set(pos[0], c_rad+8, pos[1])
+    camera.lookAt(0, c_height, 0);
 }
